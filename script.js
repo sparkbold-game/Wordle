@@ -19,7 +19,8 @@ window.addEventListener('keydown', handleKeyDown);
 function handleKeyDown(e) {
   const char = e.key.toLowerCase();
 
-  if (e.ctrlKey || e.metaKey || e.altKey) {
+  // ignore keys
+  if (e.ctrlKey || e.metaKey || e.altKey || e.key === 'ArrowUp' || e.key === 'ArrowDown' || e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
     return;
   }
 
@@ -39,7 +40,7 @@ function handleKeyDown(e) {
 
     // reach the end wrong
     if (guessWordList.length === maxGuess - 1 && currentGuess !== secretWord) {
-      alert('Sorry! The word is ', secretWord);
+      alert(`Sorry! The word is ${secretWord}`);
       return;
     }
 
